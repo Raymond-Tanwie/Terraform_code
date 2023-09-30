@@ -10,6 +10,7 @@ module "network" {
   source   = "./modules/network"
   name     = "primus"
   sbn-cidr = "10.0.1.0/24"
+  env = "prod"
 }
 
 module "ray_sg" {

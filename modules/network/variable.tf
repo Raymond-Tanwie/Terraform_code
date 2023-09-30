@@ -17,3 +17,7 @@ variable "name" {
 variable "sbn-cidr" {
     
 }
+
+variable "env" {
+    
+}
