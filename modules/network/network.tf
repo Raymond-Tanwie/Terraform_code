@@ -27,7 +27,7 @@ resource "aws_internet_gateway" "ray_ig" {
   vpc_id = aws_vpc.RAYMOND.id
 
   tags = {
-    Name = "${var.name}-ig" //raymond_ig"
+    Name = "${var.env}-${var.name}-ig" //raymond_ig"
   }
 }
 

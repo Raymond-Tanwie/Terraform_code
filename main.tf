@@ -38,5 +38,6 @@ module "ray-vpc" {
   vpc-cidr = "10.10.0.0/16"
   name     = "ray"
   sbn-cidr = "10.10.0.0/24"
+  env = "prod"
 
 }
