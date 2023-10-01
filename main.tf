@@ -19,20 +19,20 @@ module "ray_sg" {
   sg     = "ray-sg"
 }*/
 
-module "ray-vpc" {
+/*module "ray-vpc" {
   source = "terraform-aws-modules/vpc/aws"
   name = "ray-vpc"
   cidr = "10.0.0.0/16"
 
-  azs             = ["use1-az1", "use1-az2"]
-  private_subnets = ["10.20.0.0/24"]
-  public_subnets  = ["10.20.1.0/24"]
+  azs             = ["use1-az1"]
+  private_subnets = ["10.0.20.0/24"]
+  public_subnets  = ["10.0.15.0/24"]
 
   tags = {
     Terraform   = "true"
     Environment = "dev"
   }
-}
+}*/
 
 /*module "ray-vpc" {
   source   = "./modules/network"
@@ -42,3 +42,16 @@ module "ray-vpc" {
   env = "prod"
 
 }*/
+
+module "s3_bucket" {
+  source = "terraform-aws-modules/s3-bucket/aws"
+
+  bucket = "rayttt"
+  
+
+  tags = {
+    env = "prod"
+    owner = "ray"
+  }
+
+}
