@@ -41,7 +41,7 @@ module "ray_sg" {
   sbn-cidr = "10.10.0.0/24"
   env = "prod"
 
-}*/
+}
 
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
@@ -54,4 +54,19 @@ module "s3_bucket" {
     owner = "ray"
   }
 
+}*/
+
+module "git-module-vpc" {
+  source = "github.com/Raymond-Tanwie/Terraform_code/modules/network"
+  vpc-cidr = "10.30.0.0/16"
+  name = "ray-vpc"
+  sbn-cidr = "10.30.0.0/24"
+  azs = "us-east-1a"
+  env = "prod"
+}
+
+module "git-module-sg" {
+source = "github.com/Raymond-Tanwie/Terraform_code/modules/security"
+vpcId = module.git-module-vpc.vpcId
+sg = "ray-sg"
 }
